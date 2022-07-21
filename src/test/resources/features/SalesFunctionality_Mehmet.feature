@@ -9,9 +9,17 @@ Feature: Upgenix sales functionality feature
     Given User is on the upgenix login page
     When User enters valid email "salesmanager15@info.com" - password "salesmanager" and hits enter
     Then User login successfully verify that title contains "Odoo"
-  @wip
+
   Scenario: User can reach New Customer Form by clicking Sales-Customers-Create
     When User clicks on Sales button
     And User clicks on Customers button
     And User clicks on Create button
     Then User successfully verifies that title contains "New "
+  @wip
+    Scenario:  User sees an error message if customer name field leaves blank
+      When User clicks on Sales button
+      And User clicks on Customers button
+      And User clicks on Create button
+      And User clicks form sheet Create button
+      When User clicks save button
+      Then User sees "The following fields are invalid:" warning message

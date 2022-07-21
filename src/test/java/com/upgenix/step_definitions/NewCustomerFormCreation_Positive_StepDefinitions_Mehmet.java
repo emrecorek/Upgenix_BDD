@@ -49,7 +49,7 @@ public class NewCustomerFormCreation_Positive_StepDefinitions_Mehmet {
     }
     @Then("User successfully verifies that title contains {string}")
     public void user_successfully_verifies_that_title_contains(String string) {
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitForClickablility(mainPage.formSheetCreateButton,10);
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
 
     }

@@ -20,6 +20,15 @@ public class MainPage_Mehmet {
     @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o-kanban-button-new btn-default']")
     public WebElement createButton;
 
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o-kanban-button-new']")
+    public WebElement formSheetCreateButton;
+
+    @FindBy(xpath = "//button[.='Save  & Close']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//div[@class='o_notification_title']")
+    public WebElement warningMessage;
+
 
 
 
