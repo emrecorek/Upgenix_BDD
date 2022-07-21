@@ -28,5 +28,5 @@ Feature: Upgenix sales functionality feature
       When User clicks on Sales button
       And User clicks on Customers button
       And User clicks on Create button
-      And User creates a "New Customer" and clicks on Save button
-      Then User verifies that title contains "New Customer"
+      And User creates a name and clicks on Save button
+      Then User verifies that title contains name
