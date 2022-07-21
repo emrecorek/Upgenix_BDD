@@ -1,4 +1,4 @@
-
+@UPGNX-448
 Feature: Upgenix sales functionality feature
   User Story:
 
@@ -9,24 +9,31 @@ Feature: Upgenix sales functionality feature
     Given User is on the upgenix login page
     When User enters valid email "salesmanager15@info.com" - password "salesmanager" and hits enter
     Then User login successfully verify that title contains "Odoo"
-
+  @UPGNX-444
   Scenario: User can reach New Customer Form by clicking Sales-Customers-Create
     When User clicks on Sales button
     And User clicks on Customers button
     And User clicks on Create button
     Then User successfully verifies that title contains "New "
-
-    Scenario:  User sees an error message if customer name field leaves blank
-      When User clicks on Sales button
-      And User clicks on Customers button
-      And User clicks on Create button
-      And User clicks form sheet Create button
-      When User clicks save button
-      Then User sees "The following fields are invalid:" warning message
-  @wip
-    Scenario: User is able to see the customer name after creating a new costumer
-      When User clicks on Sales button
-      And User clicks on Customers button
-      And User clicks on Create button
-      And User creates a name and clicks on Save button
-      Then User verifies that title contains name
+  @UPGNX-445
+  Scenario:  User sees an error message if customer name field leaves blank
+    When User clicks on Sales button
+    And User clicks on Customers button
+    And User clicks on Create button
+    And User clicks form sheet Create button
+    When User clicks save button
+    Then User sees "The following fields are invalid:" warning message
+  @UPGNX-446
+  Scenario: User is able to see the customer name after creating a new costumer
+    When User clicks on Sales button
+    And User clicks on Customers button
+    And User clicks on Create button
+    And User creates a name and clicks on Save button
+    Then User verifies that title contains name
+  @UPGNX-447
+  Scenario: User is able to see the created customer is listed in the Customers module
+    When User clicks on Sales button
+    And User clicks on Customers button
+    And User clicks on Create button
+    And User creates a name and clicks on Save button
+    Then User verifies that customer is listed in Customers module

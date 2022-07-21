@@ -38,6 +38,14 @@ public class MainPage_Mehmet {
     @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_edit']")
     public WebElement edit;
 
+    @FindBy(xpath = "//input[@class='o_searchview_input']")
+    public WebElement search;
+
+    @FindBy(xpath = "(//strong[@class='o_kanban_record_title oe_partner_heading'])[1]")
+    public WebElement searchedName;
+
+
+
 
 
 

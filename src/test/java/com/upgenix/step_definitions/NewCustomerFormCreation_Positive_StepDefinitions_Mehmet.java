@@ -31,7 +31,7 @@ public class NewCustomerFormCreation_Positive_StepDefinitions_Mehmet {
     }
     @When("User clicks on Sales button")
     public void user_clicks_on_sales_button() {
-
+        BrowserUtils.waitForClickablility(mainPage.salesButton,10);
         mainPage.salesButton.click();
 
     }
