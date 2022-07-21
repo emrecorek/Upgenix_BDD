@@ -29,6 +29,15 @@ public class MainPage_Mehmet {
     @FindBy(xpath = "//div[@class='o_notification_title']")
     public WebElement warningMessage;
 
+    @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
+    public WebElement name;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
+    public WebElement save;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_edit']")
+    public WebElement edit;
+
 
 
 
