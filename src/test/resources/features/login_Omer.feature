@@ -14,5 +14,5 @@ Then user should see the dashboard
     When user click inventory button
     And user click product button
     Then User click create button
-    Then User successfully verifies that title contains "New - Odoo"
+    Then User success verifies that title contains "New - Odoo"
 
