@@ -30,10 +30,12 @@ public class Product_Page {
         Products.createBtn.click();
         BrowserUtils.sleep(2);
 
+
     }
 
-    @Then("User successfully verifies that title contains {string}")
-    public void userSuccessfullyVerifiesThatTitleContains(String arg0) {
+
+    @Then("User success verifies that title contains {string}")
+    public void userSuccessVerifiesThatTitleContains(String arg0) {
         String actualTitle = Driver.getDriver().getTitle();
         String expectedTitle = arg0;
         Assert.assertTrue(actualTitle.contains(expectedTitle));
