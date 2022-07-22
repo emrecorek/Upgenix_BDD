@@ -52,7 +52,7 @@ public class Emre_Calendar_Steps {
     @Given("user on the calendar page")
     public void userOnTheCalendarPage() {
 
-        upgnx.userGoesToTheLoginPage();
+        upgnx.calendar.click();
 
     }
 
@@ -102,8 +102,8 @@ public class Emre_Calendar_Steps {
         Assert.assertEquals("Create", upgnx.createBox.getText());
     }
 
-    @And("user writes the summary of the even in the inbox")
-    public void userWritesTheSummaryOfTheEvenInTheInbox() {
+    @And("user writes the summary of the event in the inbox")
+    public void userWritesTheSummaryOfTheEventInTheInbox() {
         upgnx.inputCreateBox.sendKeys("lunch");
     }
 

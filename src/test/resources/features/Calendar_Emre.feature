@@ -2,13 +2,19 @@
 Feature: As a Posmanager, I should be able to create and to see my meetings and events on my calendar from "Calendar" module
 
 
-  Scenario: User first lands on weekly display
+  Background: Login successfully
     When user goes to the login page
     And user enters correct credentials
       | username | posmanager15@info.com |
       | password | posmanager            |
     And user login successfully
     Then user clicks calendar
+
+
+    @wip
+  Scenario: User first lands on weekly display
+
+    When user clicks calendar
 
 
   Scenario: User can change display between Day-Week-Month
@@ -31,7 +37,7 @@ Feature: As a Posmanager, I should be able to create and to see my meetings and 
 
 
 
-  @wip
+
   Scenario: User can edit a created event
     Given user on the calendar page
     When user clicks on the created event
