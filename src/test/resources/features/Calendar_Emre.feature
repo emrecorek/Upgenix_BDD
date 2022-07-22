@@ -11,12 +11,12 @@ Feature: As a Posmanager, I should be able to create and to see my meetings and 
     Then user clicks calendar
 
 
-    @wip
+
   Scenario: User first lands on weekly display
 
     When user clicks calendar
 
-
+  @wip
   Scenario: User can change display between Day-Week-Month
     Given user on the calendar page
     When user clicks on the day section
