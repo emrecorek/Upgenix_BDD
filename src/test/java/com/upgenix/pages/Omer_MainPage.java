@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Products {
-    public Products() {
+public class Omer_MainPage {
+    public Omer_MainPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(linkText = "Inventory")
@@ -15,5 +15,12 @@ public class Products {
     public WebElement productBtn;
     @FindBy(xpath = "//button[@accesskey='c']")
     public WebElement createBtn;
+    @FindBy(xpath = "//input[@name='name']")
+    public WebElement productName;
+    @FindBy(xpath = "//button[@accesskey='s']")
+    public WebElement saveBtn;
+    @FindBy(xpath = "//div[@class='o_notification_title']")
+    public WebElement error;
+
 
 }
