@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-    public LoginPage() {
+public class Omer_LoginPage {
+    public Omer_LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(id = "login")
