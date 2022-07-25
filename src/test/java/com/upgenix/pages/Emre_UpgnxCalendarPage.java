@@ -62,6 +62,12 @@ public class Emre_UpgnxCalendarPage extends Emre_UpgnxMainPage {
     @FindBy(xpath = "//div[@class='o_field_name o_field_type_char']")
     public WebElement nameOfEvent;
 
+    @FindBy(xpath = "//span[.='Delete']")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "//span[.='Ok']")
+    public WebElement okButton;
+
 
     public void userGoesToTheLoginPage(){
 
