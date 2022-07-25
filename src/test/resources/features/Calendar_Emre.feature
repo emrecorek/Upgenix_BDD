@@ -51,3 +51,7 @@ Feature: As a Posmanager, I should be able to create and to see my meetings and 
     When user clicks on the day section
     When user clicks on the created event
     And user clicks the delete button and verify event is deleted
+
+
+
+
