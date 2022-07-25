@@ -11,7 +11,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
-public class NewCustomerFormCreation_Positive_StepDefinitions_Mehmet {
+public class NewCustomerFormCreation_StepDefinitions_Mehmet {
 
     LoginPage_Mehmet loginPage = new LoginPage_Mehmet();
     MainPage_Mehmet mainPage = new MainPage_Mehmet();
@@ -52,6 +52,19 @@ public class NewCustomerFormCreation_Positive_StepDefinitions_Mehmet {
         BrowserUtils.waitForClickablility(mainPage.formSheetCreateButton,10);
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
 
+    }
+
+    @When("User clicks form sheet Create button")
+    public void user_clicks_form_sheet_create_button() {
+        mainPage.formSheetCreateButton.click();
+    }
+    @When("User clicks save button")
+    public void user_clicks_save_button() {
+        mainPage.saveButton.click();
+    }
+    @Then("User sees {string} warning message")
+    public void user_sees_warning_message(String string) {
+        Assert.assertTrue(mainPage.warningMessage.getText().contains(string));
     }
 
 }
