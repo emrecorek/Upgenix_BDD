@@ -25,8 +25,8 @@ public class Emre_Calendar_Steps {
     }
 
 
-    @And("user enters correct credentials")
-    public void userEntersCorrectCredentials(Map<String, String> credentials) {
+    @And("user enters correct credentials and login successfully")
+    public void userEntersCorrectCredentialsAndLoginSuccessfully(Map<String, String> credentials) {
 
         upgnx.emailInputBox.sendKeys(credentials.get("username"));
         upgnx.passwordInputBox.sendKeys(credentials.get("password"));
@@ -34,50 +34,35 @@ public class Emre_Calendar_Steps {
 
     }
 
-    @And("user login successfully")
-    public void userLoginSuccessfully() {
-
-        Assert.assertTrue(upgnx.loginVerification.isDisplayed());
-
-    }
-
     @Then("user clicks calendar")
     public void userClicksCalendar() {
-
         upgnx.calendar.click();
-
-        Assert.assertTrue(upgnx.weekButton.getAttribute("class").contains("active"));
     }
 
-    @Given("user on the calendar page")
-    public void userOnTheCalendarPage() {
-
-        upgnx.calendar.click();
-
+    @Then("user verify weekly display")
+    public void userVerifyWeeklyDisplay() {
+        Assert.assertTrue(upgnx.weekButton.getAttribute("class").contains("active"));
     }
 
     @When("user clicks on the day section")
     public void userClicksOnTheDaySection() {
-
         upgnx.dayButton.click();
-
     }
 
     @And("user sees daily display")
     public void userSeesDailyDisplay() {
-        WaitUtils.waitVisibilityOfElement(upgnx.loadingAlert);
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
         Assert.assertTrue(upgnx.dayButton.getAttribute("class").contains("active"));
     }
 
     @And("user clicks on the month section")
     public void userClicksOnTheMonthSection() {
-
         upgnx.monthButton.click();
     }
 
     @And("user sees monthly display")
     public void userSeesMonthlyDisplay() {
-        WaitUtils.waitVisibilityOfElement(upgnx.loadingAlert);
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
         Assert.assertTrue(upgnx.monthButton.getAttribute("class").contains("active"));
     }
 
@@ -88,12 +73,13 @@ public class Emre_Calendar_Steps {
 
     @Then("user sees weekly display")
     public void userSeesWeeklyDisplay() {
-        WaitUtils.waitVisibilityOfElement(upgnx.loadingAlert);
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
         Assert.assertTrue(upgnx.weekButton.getAttribute("class").contains("active"));
     }
 
     @When("user click on any time box")
     public void userClickOnAnyTimeBox() {
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
         upgnx.timeBox.click();
     }
 
@@ -112,14 +98,14 @@ public class Emre_Calendar_Steps {
         int totalEventsBefore = upgnx.events.size();
         upgnx.createButton.click();
 
-        WaitUtils.waitVisibilityOfElement(upgnx.loadingAlert);
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
         Assert.assertEquals(totalEventsBefore + 1, upgnx.events.size());
     }
 
 
     @When("user clicks on the created event")
     public void userClicksOnTheCreatedEvent() {
-        WaitUtils.waitVisibilityOfElement(upgnx.loadingAlert);
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
         upgnx.eventBox.click();
     }
 
@@ -155,9 +141,18 @@ public class Emre_Calendar_Steps {
 
     @Then("user sees the edited event name {string}")
     public void userSeesTheEditedEventName(String nameOfEvent) {
-        WaitUtils.waitVisibilityOfElement(upgnx.loadingAlert);
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
         Assert.assertEquals(nameOfEvent,upgnx.nameOfEvent.getText());
     }
 
 
+    @And("user clicks the delete button and verify event is deleted")
+    public void userClicksTheDeleteButton() {
+        int totalEventsBefore = upgnx.events.size();
+        upgnx.deleteButton.click();
+        upgnx.okButton.click();
+        WaitUtils.waitInvisibilityOfElement(upgnx.loadingAlert);
+        int actualEventsCount = upgnx.events.size();
+        Assert.assertEquals(totalEventsBefore-1, actualEventsCount);
+    }
 }
