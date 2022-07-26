@@ -44,5 +44,6 @@ Feature: Creating new vehicle contract functionality.
               And user can enter "129,90" as a valid amount in the "Activation Cost" case
               And user chooses the option "Weekly" from the "Recurring Cost Amount" dropdown and gives a valid recurring cost amount
               And user clicks on "save" button
+              And user clicks on "vehicles contracts"
               Then user verifies that vehicle name is listed in vehicle contracts module
 

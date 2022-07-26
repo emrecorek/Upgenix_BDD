@@ -59,4 +59,8 @@ public class NewVehicleContract_Ayse {
     public void userVerifiesThatVehicleNameIsListedInVehicleContractsModule() {
     }
 
+    @And("user clicks on {string}")
+    public void userClicksOn(String arg0) {
+    }
+
 }
