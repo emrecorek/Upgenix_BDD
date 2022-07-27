@@ -1,6 +1,7 @@
 package com.upgenix.step_definitions;
 
 
+
 import com.upgenix.pages.Omer_LoginPage;
 import com.upgenix.pages.Omer_MainPage;
 import com.upgenix.utilities.BrowserUtils;
@@ -16,6 +17,7 @@ import org.openqa.selenium.Keys;
 public class Omer_Inventory_StepDefinations {
     Omer_MainPage Products = new Omer_MainPage();
     Omer_LoginPage login =new Omer_LoginPage();
+
     String newPro="iphone 13 pro";
 
     @Given("user is on the login page")
