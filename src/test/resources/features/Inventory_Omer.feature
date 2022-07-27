@@ -18,8 +18,7 @@ Feature: US-003 Inventory Functionality AUTOMATION
    #AC2
   @UPGNX-451
 
-  Scenario: Verify that if Product name field leaves blank, an error message
-  "The following fields are invalid:" is appeared.
+  Scenario: Verify that if Product name field leaves blank, an error message "The following fields are invalid:" is appeared.
     When user click inventory button
     And user click product button
     Then User click create button
