@@ -1,7 +1,7 @@
 @UPGNX-461
 Feature: As a Posmanager, I should be able to create and to see my meetings and events on my calendar from "Calendar" module
 
-  @UPGNX-455
+
   Background: Login successfully
     When user goes to the login page
     And user enters correct credentials and login successfully
