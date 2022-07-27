@@ -2,6 +2,7 @@ package com.upgenix.step_definitions;
 
 
 
+import com.github.javafaker.Faker;
 import com.upgenix.pages.Omer_LoginPage;
 import com.upgenix.pages.Omer_MainPage;
 import com.upgenix.utilities.BrowserUtils;
@@ -13,12 +14,24 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class Omer_Inventory_StepDefinations {
     Omer_MainPage Products = new Omer_MainPage();
     Omer_LoginPage login =new Omer_LoginPage();
 
-    String newPro="iphone 13 pro";
+    Faker faker = new Faker();
+     String newProo="iphone 13 pro max";
+     String servicePro="gamer16";
+
+
+
+    String barcodeFake=String.valueOf(faker.numerify("#######"));
+    String salesFake=String.valueOf(faker.numerify("###"+"."+"0"));
+
+
+
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
@@ -78,6 +91,7 @@ public class Omer_Inventory_StepDefinations {
     @And("user click save button")
     public void userClickSaveButton() {
         Products.saveBtn.click();
+        BrowserUtils.sleep(3);
     }
 
     @Then("user see error message {string}")
@@ -95,31 +109,59 @@ public class Omer_Inventory_StepDefinations {
     @Then("User add product name, sales price , and barcode")
     public void userAddProductNameSalesPriceAndBarcode() {
 
-        Products.productName.sendKeys(newPro);
-        Products.barcode.sendKeys("215454454");
+        Products.productName.sendKeys(newProo);
+        Products.barcode.sendKeys(barcodeFake);
         BrowserUtils.sleep(3);
         Products.salesPrice.click();
         Products.salesPrice.clear();
-        Products.salesPrice.sendKeys("750.0");
+        Products.salesPrice.sendKeys(salesFake);
 
     }
 
     @And("user verify the page title includes the Product name.")
     public void userVerifyThePageTitleIncludesTheProductName() {
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(Products.productName.getText()));
+        Assert.assertTrue(newProo.contains(Products.Proverify.getText()));
     }
 
     @And("user click search line")
     public void userClickSearchLine() {
 
-        Products.searchLine.sendKeys(newPro+ Keys.ENTER);
+        Products.searchLine.sendKeys(newProo+ Keys.ENTER);
         BrowserUtils.sleep(3);
     }
 
     @And("verify the product")
     public void verifyTheProduct() {
         BrowserUtils.waitForClickablility(Products.verifProdct, 5);
-        Assert.assertTrue(Products.verifProdct.getText().equals(newPro));
+        Assert.assertTrue(Products.verifProdct.getText().equals(newProo));
 
+    }
+
+    @Then("User add product name, sales price , and barcode and product Type")
+    public void userAddProductNameSalesPriceAndBarcodeAndProductType() {
+        Products.productName.sendKeys(servicePro);
+        Products.barcode.sendKeys(barcodeFake);
+        BrowserUtils.sleep(3);
+        Products.salesPrice.click();
+        Products.salesPrice.clear();
+        Products.salesPrice.sendKeys(salesFake);
+        BrowserUtils.sleep(3);
+        Select select=new Select(Products.type);
+        select.selectByVisibleText("Service");
+
+
+
+
+    }
+
+    @And("verify the product search line")
+    public void verifyTheProductSearchLine() {
+
+        Products.productBtn.click();
+        BrowserUtils.sleep(5);
+        Products.searchLine.sendKeys(servicePro+ Keys.ENTER);
+        BrowserUtils.sleep(3);
+        BrowserUtils.waitForClickablility(Products.verifProdct, 10);
+        Assert.assertTrue(Products.verifProdct.getText().equals(servicePro));
     }
 }

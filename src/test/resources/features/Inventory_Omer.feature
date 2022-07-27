@@ -26,7 +26,7 @@ Feature: US-003 Inventory Functionality AUTOMATION
     And user click save button
     Then user see error message "The following fields are invalid:"
 
- #AC3
+ #AC3/1
   @UPGNX-452
   Scenario: Verify that after creating a Product, the page title includes the Product name.
     When user click inventory button
@@ -35,6 +35,16 @@ Feature: US-003 Inventory Functionality AUTOMATION
     Then User add product name, sales price , and barcode
     And user click save button
     And user verify the page title includes the Product name.
+    #AC3/2
+
+  @UPGNX-462
+  Scenario: Verify that after creating a Product, the page title includes the Product name with product Type
+    When user click inventory button
+    And user click product button
+    Then User click create button
+    Then User add product name, sales price , and barcode and product Type
+    And user click save button
+    And verify the product search line
 
 #AC4
   @UPGNX-453
