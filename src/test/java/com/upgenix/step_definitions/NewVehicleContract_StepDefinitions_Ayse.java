@@ -101,7 +101,7 @@ public class NewVehicleContract_StepDefinitions_Ayse {
     public void userSuccessfullyVerifyThatTitleContains(String string) {
         //BrowserUtils.waitFor(2);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.titleContains("Audi/A1/1-AUD-001 / Leasing / 2022-07-28 - Odoo"));
+        wait.until(ExpectedConditions.titleContains("Audi/A1/1-AUD-001"));
 
         System.out.println("Driver.getDriver().getTitle() = " + Driver.getDriver().getTitle());
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
