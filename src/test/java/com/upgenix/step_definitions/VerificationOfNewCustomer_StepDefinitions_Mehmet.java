@@ -14,7 +14,7 @@ public class VerificationOfNewCustomer_StepDefinitions_Mehmet {
     MainPage_Mehmet mainPage = new MainPage_Mehmet();
 
     Faker faker = new Faker();
-    String name = String.valueOf(faker.name().fullName());
+    String name = faker.name().fullName();
 
     @And("User creates a name and clicks on Save button")
     public void userCreatesAAndClicksOnSaveButton() {
