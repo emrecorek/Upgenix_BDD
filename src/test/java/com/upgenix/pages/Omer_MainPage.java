@@ -11,7 +11,7 @@ public class Omer_MainPage {
     }
     @FindBy(linkText = "Inventory")
     public WebElement inventoryBtn;
-    @FindBy(linkText = "Products")
+    @FindBy(partialLinkText = "Products")
     public WebElement productBtn;
     @FindBy(xpath = "//button[@accesskey='c']")
     public WebElement createBtn;
@@ -30,6 +30,13 @@ public class Omer_MainPage {
     public WebElement searchLine;
     @FindBy(xpath = "//strong[@class='o_kanban_record_title'][1]")
     public WebElement verifProdct;
+    @FindBy(xpath = "//span[@name='name']")
+    public WebElement Proverify;
+
+    @FindBy(xpath = "//select[starts-with(@id, 'o_field_input')]")
+    public WebElement type;
+
+
 
 
 
