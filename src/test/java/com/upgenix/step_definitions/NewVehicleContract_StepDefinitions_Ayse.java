@@ -16,17 +16,17 @@ public class NewVehicleContract_StepDefinitions_Ayse {
     LoginPage_Ayse loginPage_ayse = new LoginPage_Ayse();
     MainPage_Ayse mainPage_ayse = new MainPage_Ayse();
 
-    @Given("user is on the upgenix login page")
+    @Given("user is on the upgenix login web page")
     public void userIsOnTheUpgenixLoginPage() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-    @When("User enters valid email {string} - password {string} and hits enter")
+    @When("User enters correct email {string} - password {string} and hits enter")
     public void user_enters_valid_email_password_and_hits_enter(String email, String password) {
         loginPage_ayse.email.sendKeys(email);
         loginPage_ayse.password.sendKeys(password+ Keys.ENTER);
     }
-    @Then("User login successfully verify that title contains {string}")
+    @Then("User login and verify that title contains {string}")
     public void user_login_successfully_verify_that_title_contains(String string) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
     }

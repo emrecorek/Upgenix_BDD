@@ -3,16 +3,16 @@ Feature: Creating new vehicle contract functionality.
   User story : As a posmanager, I should be able to create a new Vehicle Contract.
 
   Background: For the scenarios in the feature file, user is expected to be on the login page
-    Given user is on the upgenix login page
-    When User enters valid email "posmanager15@info.com" - password "posmanager" and hits enter
-    Then User login successfully verify that title contains "Odoo"
-
+    Given user is on the upgenix login web page
+    When User enters correct email "posmanager15@info.com" - password "posmanager" and hits enter
+    Then User login and verify that title contains "Odoo"
+    @ayse
     Scenario: User can reach New Vehicle Contracts Form by clicking Vehicles --> Vehicles Contracts --> Create
       When user clicks on "more" module from the homepage
       And user clicks on "fleet" option
       And user clicks on "vehicles contracts" button from vehicle page
       And user clicks on "create" button
-      Then user successfully verifies that title contains "New - Odoo"
+      Then user successfully verifies that title contains "Vehicles Contracts - Odoo"
 
       Scenario: User can create a new Contract (User enters only Vehicle, Type, Activation Cost, Recurring Cost Amount)
         When user chooses the option "Audi/A1/1-AUD-001" from vehicle dropdown
