@@ -36,10 +36,10 @@ public MainPage_Ayse(){
 
 // need one more locator
 
-@FindBy(xpath = "//input[@id='o_field_input_73']")
+@FindBy(xpath = "//input[@id='o_field_input_16']")
     public WebElement activationCostInput;
 
-@FindBy(xpath = "//select[@id='o_field_input_75']")
+@FindBy(xpath = "//input[@id='o_field_input_17']")
     public WebElement recurringCostAmountInput;
 
 //need one more locator
@@ -49,6 +49,26 @@ public MainPage_Ayse(){
 
 @FindBy(xpath = "//div[@class='o_notification_manager']")
     public WebElement errorMessage;
+
+    @FindBy(className = "o_loading")
+    public WebElement loadingAlert;
+
+    //@FindBy(xpath = "(//span[@class='o_dropdown_button'])[1]") ----> it works as well
+    @FindBy(xpath = "(//input[@class='o_input ui-autocomplete-input'])[1]")
+    public WebElement dropdownVehicle;
+
+    @FindBy(xpath = "//a[.='Audi/A1/1-AUD-001']")
+    public WebElement selectAudi;
+
+    // @FindBy(xpath = "//input[@id='o_field_input_15']")
+    @FindBy(xpath = "(//input[@class='o_input ui-autocomplete-input'])[2]")
+    public WebElement dropdownType;
+
+    @FindBy(xpath = "//a[.='Leasing']")
+    public WebElement leasing;
+
+    @FindBy(id = "o_field_input_18")
+    public WebElement dropdowmRecurring;
 
 
 
