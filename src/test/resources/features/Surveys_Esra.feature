@@ -1,4 +1,4 @@
-@Esra
+
 Feature: Upgnx Surveys Functionality feature
 
   User Story:
@@ -25,7 +25,9 @@ Feature: Upgnx Surveys Functionality feature
     And User clicks on the Create button on the Surveys page
     And User fills in the Survey Title input and clicks on the Save button
     Then User verifies the "Survey created" message under the survey form sheet
-
+  @Esra
   Scenario: Verifying that the created survey is listed after clicking the Surveys module.
     When User clicks on the Surveys module
+    And User clicks on the Create button on the Surveys page
+    And User fills in the Survey Title input and clicks on the Save button
     Then User verifies that the created survey is listed on the Surveys page

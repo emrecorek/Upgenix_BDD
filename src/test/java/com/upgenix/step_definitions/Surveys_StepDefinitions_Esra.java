@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 public class Surveys_StepDefinitions_Esra {
@@ -27,14 +28,12 @@ public class Surveys_StepDefinitions_Esra {
         loginPage_esra.emailInput.sendKeys(ConfigurationReader.getProperty("username"));
         loginPage_esra.passwordInput.sendKeys(ConfigurationReader.getProperty("password"));
         loginPage_esra.loginButton.click();
-
     }
+
     @Then("User is on homepage and verifies that title contains {string}")
     public void user_is_on_homepage_and_verifies_that_title_contains(String string) {
-
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
     }
-
 
     @When("User clicks on the Surveys module and verifies the title is {string}")
     public void user_clicks_on_the_surveys_module_and_verifies_the_title_is(String string) {
@@ -43,9 +42,9 @@ public class Surveys_StepDefinitions_Esra {
         BrowserUtils.verifyElementDisplayed(homePage_esra.surveyCreateButton);
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
     }
+
     @When("User clicks on the Create button on the Surveys page")
     public void user_clicks_on_the_create_button_on_the_surveys_page() {
-
         homePage_esra.surveyCreateButton.click();
     }
 
@@ -64,7 +63,8 @@ public class Surveys_StepDefinitions_Esra {
     }
 
     Faker faker = new Faker();
-    String title = faker.bothify("Esra#");
+
+    String title = "BingBang" + faker.numerify("#");
 
     @When("User fills in the Survey Title input and clicks on the Save button")
     public void user_fills_in_the_survey_title_input_and_clicks_on_the_save_button() {
@@ -72,6 +72,7 @@ public class Surveys_StepDefinitions_Esra {
         homePage_esra.titleInput.sendKeys(title);
         homePage_esra.saveButton.click();
     }
+
     @Then("User verifies the {string} message under the survey form sheet")
     public void user_verifies_the_message_under_the_survey_form_sheet(String string) {
         BrowserUtils.waitForVisibility(homePage_esra.editButton,10);
@@ -81,15 +82,24 @@ public class Surveys_StepDefinitions_Esra {
     @When("User clicks on the Surveys module")
     public void userClicksOnTheSurveysModule() {
         homePage_esra.surveysModule.click();
+        BrowserUtils.waitForVisibility(homePage_esra.surveyCreateButton,10);
     }
 
     @Then("User verifies that the created survey is listed on the Surveys page")
     public void user_verifies_that_the_created_survey_is_listed_on_the_surveys_page() {
+        homePage_esra.surveysModule.click();
         BrowserUtils.waitForVisibility(homePage_esra.searchBox,10);
-        homePage_esra.searchBox.sendKeys(title,Keys.ENTER);
+        BrowserUtils.waitFor(2);
+
+        homePage_esra.searchBox.sendKeys(title+Keys.ENTER);
         BrowserUtils.waitForVisibility(homePage_esra.createdSurvey,10);
-        homePage_esra.createdSurvey.click();
-        Assert.assertTrue(Driver.getDriver().getTitle().contains("Esra"));
+        BrowserUtils.waitFor(2);
+
+        Assert.assertTrue(homePage_esra.createdSurvey.isDisplayed());
+
+
+
+
 
     }
 

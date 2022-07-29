@@ -38,6 +38,7 @@ public class HomePage_Esra {
         @FindBy(xpath ="//button[@class='btn btn-primary btn-sm o_form_button_edit']")
         public WebElement editButton;
 
-        @FindBy(xpath = "//div[@class='oe_kanban_color_0 oe_kanban_card oe_kanban_global_click o_kanban_record ui-sortable-handle']")
+        @FindBy(xpath = "//h4[@class='o_kanban_record_title mb4']")
         public WebElement createdSurvey;
+
 }
