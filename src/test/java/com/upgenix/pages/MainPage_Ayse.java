@@ -13,41 +13,27 @@ public MainPage_Ayse(){
     PageFactory.initElements(Driver.getDriver(), this);
 }
 
-@FindBy(xpath = "//li[@id='menu_more_container']")
+   @FindBy(xpath = "//li[@id='menu_more_container']")
     public WebElement moreButton;
 
-@FindBy(xpath = "//a[@data-menu='134']")
+   @FindBy(xpath = "//a[@data-menu='134']")
     public WebElement fleetButton;
 
-@FindBy(xpath = "//a[@data-action-id='163']")
+   @FindBy(xpath = "//a[@data-action-id='163']")
     public WebElement vehicleContractsButton;
 
-@FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_list_button_add']")
+   @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_list_button_add']")
     public WebElement createButton;
 
-@FindBy(xpath = "//input[@id='o_field_input_71']")
-    public WebElement vehicleInputBox;
 
-// need one more locator
-
-
-@FindBy(xpath = "//input[@id='o_field_input_72']")
-    public WebElement typeInputBox;
-
-// need one more locator
-
-@FindBy(xpath = "//input[@id='o_field_input_16']")
+    @FindBy(xpath = "(//input[@class='o_field_float o_field_number o_field_widget o_input'])[1]")
     public WebElement activationCostInput;
 
-@FindBy(xpath = "//input[@id='o_field_input_17']")
-    public WebElement recurringCostAmountInput;
 
-//need one more locator
-
-@FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
     public WebElement saveButton;
 
-@FindBy(xpath = "//div[@class='o_notification_manager']")
+    @FindBy(xpath = "//div[@class='o_notification_manager']")
     public WebElement errorMessage;
 
     @FindBy(className = "o_loading")
@@ -67,8 +53,20 @@ public MainPage_Ayse(){
     @FindBy(xpath = "//a[.='Leasing']")
     public WebElement leasing;
 
+ @FindBy(xpath = "//input[@class='o_field_float o_field_number o_field_widget o_input oe_inline']")
+ public WebElement recurringCostAmountInput;
+
     @FindBy(id = "o_field_input_18")
     public WebElement dropdowmRecurring;
+
+    @FindBy(xpath = "(//td[@class='o_data_cell o_required_modifier'])[1]")
+    public WebElement vehicleListed;
+
+    /*
+    //td[.='Audi/A1/1-AUD-001']
+     */
+
+
 
 
 
