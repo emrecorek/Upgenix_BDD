@@ -63,12 +63,6 @@ public class NewVehicleContract_StepDefinitions_Ayse {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
     }
 
-    @When("user chooses the option Audi\\/A{int}\\/{int}-AUD{int} from vehicle dropdown")
-    public void userChoosesTheOptionAudiAAUDFromVehicleDropdown(int arg0, int arg1, int arg2) {
-        Driver.getDriver().get("https://qa.upgenix.net/web?#id=&view_type=form&model=fleet.vehicle.log.contract&menu_id=146&action=163");
-        mainPage_ayse.dropdownVehicle.click();
-        mainPage_ayse.selectAudi.click();
-    }
 
     @And("user chooses Leasing option from the type dropdown")
     public void userChoosesLeasingOptionFromTheTypeDropdown() {
@@ -102,6 +96,7 @@ public class NewVehicleContract_StepDefinitions_Ayse {
         wait.until(ExpectedConditions.titleContains("Audi/A1/1-AUD-001"));
 
         System.out.println("Driver.getDriver().getTitle() = " + Driver.getDriver().getTitle());
+        //String y = "Audi/A1/1-AUD-001";
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
     }
 
@@ -112,7 +107,11 @@ public class NewVehicleContract_StepDefinitions_Ayse {
 
     @Then("user verify that title contains {string}")
     public void userVerifyThatTitleContains(String string) {
+
+        BrowserUtils.waitFor(3);
+        System.out.println("Driver.getDriver().getTitle() = " + Driver.getDriver().getTitle());
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
+
     }
 
     @And("user clicks on vehicles contracts")
@@ -122,6 +121,15 @@ public class NewVehicleContract_StepDefinitions_Ayse {
 
     @Then("user verifies that vehicle name is listed in vehicle contracts module")
     public void userVerifiesThatVehicleNameIsListedInVehicleContractsModule() {
+        String x = "Audi/A1/1-AUD-001";
+        Assert.assertTrue(mainPage_ayse.vehicleListed.getText().contains(x));
+    }
 
+
+    @When("user chooses the option {string} from vehicle dropdown")
+    public void userChoosesTheOptionFromVehicleDropdown(String arg0) {
+        Driver.getDriver().get("https://qa.upgenix.net/web?#id=&view_type=form&model=fleet.vehicle.log.contract&menu_id=146&action=163");
+        mainPage_ayse.dropdownVehicle.click();
+        mainPage_ayse.selectAudi.click();
     }
 }
