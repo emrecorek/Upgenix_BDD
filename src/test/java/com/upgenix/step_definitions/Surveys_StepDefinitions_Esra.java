@@ -13,6 +13,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import javax.sql.rowset.BaseRowSet;
+
 public class Surveys_StepDefinitions_Esra {
 
     LoginPage_Esra loginPage_esra = new LoginPage_Esra();
@@ -76,6 +78,7 @@ public class Surveys_StepDefinitions_Esra {
     @Then("User verifies the {string} message under the survey form sheet")
     public void user_verifies_the_message_under_the_survey_form_sheet(String string) {
         BrowserUtils.waitForVisibility(homePage_esra.editButton,10);
+        BrowserUtils.waitFor(2);
         Assert.assertTrue(homePage_esra.createdMessage.getText().contains(string));
     }
 
@@ -97,8 +100,10 @@ public class Surveys_StepDefinitions_Esra {
 
         Assert.assertTrue(homePage_esra.createdSurvey.isDisplayed());
 
-
-
+        //Assert.assertTrue(homePage_esra.createdSurvey.getText().contains(title));
+        homePage_esra.createdSurvey.click();
+        BrowserUtils.waitFor(3);
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(title));
 
 
     }
