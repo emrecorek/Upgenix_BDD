@@ -105,7 +105,6 @@ public class Surveys_StepDefinitions_Esra {
         BrowserUtils.waitFor(3);
         Assert.assertTrue(Driver.getDriver().getTitle().contains(title));
 
-
     }
 
 
